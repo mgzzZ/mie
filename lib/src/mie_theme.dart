@@ -1,18 +1,12 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
-
-
-class MieWrapWidget extends InheritedWidget{
+class MieWrapWidget extends InheritedWidget {
   final Widget child;
   final MieTheme theme;
-  MieWrapWidget({required this.child,required this.theme}) : super(child: child);
+  MieWrapWidget({required this.child, required this.theme}) : super(child: child);
 
-
-  static MieTheme of(BuildContext context){
+  static MieTheme of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<MieWrapWidget>()?.theme ?? MieDefaultTheme();
   }
 
@@ -22,14 +16,13 @@ class MieWrapWidget extends InheritedWidget{
   }
 }
 
-extension MieWrapWidgetExt on BuildContext{
-  MieTheme ofMieTheme(){
+extension MieWrapWidgetExt on BuildContext {
+  MieTheme ofMieTheme() {
     return MieWrapWidget.of(this);
   }
 }
 
-
-class MieTheme{
+class MieTheme {
   MTextThemeData textThemeData;
   MButtonThemeData buttonThemeData;
   MIconThemeData iconThemeData;
@@ -44,14 +37,13 @@ class MieTheme{
     required this.colorThemeData,
   });
 
-
   ThemeData copyWithThemeData(ThemeData theme) {
     return theme.copyWith(
       canvasColor: Colors.transparent,
       accentColor: colorThemeData.accentColor,
       primaryColor: colorThemeData.accentColor,
-        //待更换
-        buttonColor: buttonThemeData.mainBackGroundColor,
+      //待更换
+      buttonColor: buttonThemeData.mainBackGroundColor,
       textSelectionTheme: theme.textSelectionTheme.copyWith(
         cursorColor: colorThemeData.accentColor,
         selectionColor: colorThemeData.accentColor,
@@ -68,49 +60,52 @@ class MieTheme{
     MColorThemeData? colorThemeData,
   }) {
     return MieTheme(
-      textThemeData: textThemeData ?? this.textThemeData,
-      buttonThemeData: buttonThemeData ?? this.buttonThemeData,
-      iconThemeData: iconThemeData ?? this.iconThemeData,
-      cardThemeData: cardThemeData ?? this.cardThemeData,
-      colorThemeData: colorThemeData ?? this.colorThemeData
-    );
+        textThemeData: textThemeData ?? this.textThemeData,
+        buttonThemeData: buttonThemeData ?? this.buttonThemeData,
+        iconThemeData: iconThemeData ?? this.iconThemeData,
+        cardThemeData: cardThemeData ?? this.cardThemeData,
+        colorThemeData: colorThemeData ?? this.colorThemeData);
   }
-
 }
-
 
 class MieDefaultTheme extends MieTheme {
   MieDefaultTheme()
       : super(
-    textThemeData: MTextThemeData(),
-    buttonThemeData: MButtonThemeData(mainBackGroundColor: Colors.green),
-    cardThemeData: MCardThemeData(),
-    colorThemeData: MColorThemeData(appBackGroundColor: Color(0xfff5f5f5), accentColor: Colors.yellow),
-    iconThemeData: MIconThemeData(),
-  );
+          textThemeData: MTextThemeData(),
+          buttonThemeData: MButtonThemeData(
+            mainBackGroundColor: Colors.green,
+            mainTextColor: Colors.black,
+            secondaryBackGroundColor: Colors.red,
+            secondaryTextColor: Colors.white,
+          ),
+          cardThemeData: MCardThemeData(),
+          colorThemeData:
+              MColorThemeData(appBackGroundColor: Color(0xfff5f5f5), accentColor: Colors.yellow),
+          iconThemeData: MIconThemeData(),
+        );
 }
 
+class MTextThemeData {}
 
-class MTextThemeData{
-
-}
-
-class MButtonThemeData{
+class MButtonThemeData {
   Color mainBackGroundColor;
+  Color mainTextColor;
+  Color secondaryBackGroundColor;
+  Color secondaryTextColor;
+
   MButtonThemeData({
     required this.mainBackGroundColor,
+    required this.mainTextColor,
+    required this.secondaryBackGroundColor,
+    required this.secondaryTextColor,
   });
 }
 
-class MIconThemeData{
+class MIconThemeData {}
 
-}
+class MCardThemeData {}
 
-class MCardThemeData{
-
-}
-
-class MColorThemeData{
+class MColorThemeData {
   Color appBackGroundColor;
   Color accentColor;
 
