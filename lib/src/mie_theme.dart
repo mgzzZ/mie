@@ -29,6 +29,7 @@ class MieTheme {
   MCardThemeData cardThemeData;
   MColorThemeData colorThemeData;
 
+
   MieTheme({
     required this.textThemeData,
     required this.buttonThemeData,
@@ -77,6 +78,8 @@ class MieDefaultTheme extends MieTheme {
             mainTextColor: Colors.black,
             secondaryBackGroundColor: Colors.red,
             secondaryTextColor: Colors.white,
+            mainCor: 0,
+            secondaryCor: 4
           ),
           cardThemeData: MCardThemeData(),
           colorThemeData:
@@ -92,12 +95,18 @@ class MButtonThemeData {
   Color mainTextColor;
   Color secondaryBackGroundColor;
   Color secondaryTextColor;
+  /// 圆角
+  double mainCor;
+  double secondaryCor;
+
 
   MButtonThemeData({
     required this.mainBackGroundColor,
     required this.mainTextColor,
     required this.secondaryBackGroundColor,
     required this.secondaryTextColor,
+    required this.mainCor,
+    required this.secondaryCor,
   });
 }
 

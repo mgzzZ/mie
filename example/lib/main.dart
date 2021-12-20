@@ -96,6 +96,14 @@ class _MyHomePageState extends State<MyHomePage> {
             MButton('这是一个button', onTap: (){
               print('点击方法');
             }),
+            MButton.main('这是主按钮',onTap: (){}),
+            MButton.secondary('这是次按钮',onTap: (){}),
+            MStateButton('这是又状态的按钮',onTap: ()async{
+               await Future.delayed(Duration(seconds: 2), () => print("我是从互联网上获取的数据"));
+            },),
+            MStateButton.main('这是有状态的主按钮',onTap: ()async{
+              await Future.delayed(Duration(seconds: 2), () => print("我是从互联网上获取的数据"));
+            }),
           ],
         ),
       ),
