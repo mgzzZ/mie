@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mie/mie.dart';
-import 'package:mie/src/min_map.dart';
 
-class MButton extends TextButton{
+class MButton extends TextButton {
   final String text;
   final VoidCallback? onTap;
   final Color? backgroundColor;
@@ -10,18 +9,41 @@ class MButton extends TextButton{
   final EdgeInsetsGeometry? padding;
   final double? textSize;
   final ButtonStyle? style;
-  MButton(this.text,
-      {required this.onTap, this.backgroundColor, this.textColor, this.textSize, this.style,this.padding,})
-      : super(
-            child: Text(text),
-            onPressed: onTap,
-            style: style ?? TextButton.styleFrom(backgroundColor: backgroundColor,minimumSize: Size(0,0),padding: padding,shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(0)),),),);
+  MButton(
+    this.text, {
+    required this.onTap,
+    this.backgroundColor,
+    this.textColor,
+    this.textSize,
+    this.style,
+    this.padding,
+  }) : super(
+          child: Text(text),
+          onPressed: onTap,
+          style: style ??
+              TextButton.styleFrom(
+                backgroundColor: backgroundColor,
+                minimumSize: Size(1, 1),
+                padding: padding,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(0)),
+                ),
+              ),
+        );
 
   static Widget main(String text, {VoidCallback? onTap}) {
     return Builder(builder: (context) {
       MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
       ButtonStyle style = TextButton.styleFrom(
-          backgroundColor: theme.mainBackGroundColor, primary: theme.mainTextColor,padding: EdgeInsets.symmetric(horizontal: 8,vertical: 4),minimumSize: Size(0,0),shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),),
+        backgroundColor: theme.mainBackGroundColor,
+        primary: theme.mainTextColor,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        minimumSize: Size(1, 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),
+        ),
       );
       return MButton(
         text,
@@ -35,7 +57,14 @@ class MButton extends TextButton{
     return Builder(builder: (context) {
       MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
       ButtonStyle style = TextButton.styleFrom(
-          backgroundColor: theme.secondaryBackGroundColor, primary: theme.secondaryTextColor,padding: EdgeInsets.symmetric(horizontal: 8,vertical: 4),minimumSize: Size(0,0),shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),));
+          backgroundColor: theme.secondaryBackGroundColor,
+          primary: theme.secondaryTextColor,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          minimumSize: Size(1, 1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),
+          ));
       return MButton(
         text,
         onTap: onTap,
@@ -46,7 +75,16 @@ class MButton extends TextButton{
 }
 
 class MStateButton extends StatefulWidget {
-  const MStateButton(this.text,{Key? key, this.onTap, this.backgroundColor, this.textColor, this.padding, this.textSize, this.style, this.loadingWidget}) : super(key: key);
+  const MStateButton(this.text,
+      {Key? key,
+      this.onTap,
+      this.backgroundColor,
+      this.textColor,
+      this.padding,
+      this.textSize,
+      this.style,
+      this.loadingWidget})
+      : super(key: key);
   final String text;
   final Future Function()? onTap;
   final Color? backgroundColor;
@@ -59,29 +97,49 @@ class MStateButton extends StatefulWidget {
   @override
   _MStateButtonState createState() => _MStateButtonState();
 
-  static Widget main(String text, {Future Function()? onTap}){
-    return Builder(builder: (context){
+  static Widget main(String text, {Future Function()? onTap}) {
+    return Builder(builder: (context) {
       MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
       ButtonStyle style = TextButton.styleFrom(
-        backgroundColor: theme.mainBackGroundColor, primary: theme.mainTextColor,padding: EdgeInsets.symmetric(horizontal: 8,vertical: 4),minimumSize: Size(0,0),shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),),
+        backgroundColor: theme.mainBackGroundColor,
+        primary: theme.mainTextColor,
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        minimumSize: Size(1, 1),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),
+        ),
       );
-      return MStateButton(text,onTap: onTap,style: style,);
+      return MStateButton(
+        text,
+        onTap: onTap,
+        style: style,
+      );
     });
   }
 
-  static Widget secondary(String text, {Future Function()? onTap}){
-    return Builder(builder: (context){
+  static Widget secondary(String text, {Future Function()? onTap}) {
+    return Builder(builder: (context) {
       MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
       ButtonStyle style = TextButton.styleFrom(
-          backgroundColor: theme.secondaryBackGroundColor, primary: theme.secondaryTextColor,padding: EdgeInsets.symmetric(horizontal: 8,vertical: 4),minimumSize: Size(0,0),shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),));
-      return MStateButton(text,onTap: onTap,style: style,);
+          backgroundColor: theme.secondaryBackGroundColor,
+          primary: theme.secondaryTextColor,
+          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          minimumSize: Size(1, 1),
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),
+          ));
+      return MStateButton(
+        text,
+        onTap: onTap,
+        style: style,
+      );
     });
   }
-
 }
 
 class _MStateButtonState extends State<MStateButton> {
-
   late bool _loading = false;
   double width = 0;
   double height = 0;
@@ -94,22 +152,47 @@ class _MStateButtonState extends State<MStateButton> {
 
   @override
   Widget build(BuildContext context) {
-
-    final Widget indicator =widget.loadingWidget ?? CircularProgressIndicator(
-      strokeWidth: 3,
-      valueColor: AlwaysStoppedAnimation(context.ofMieTheme().colorThemeData.accentColor),
+    final Widget indicator = widget.loadingWidget ??
+        CircularProgressIndicator(
+          strokeWidth: 3,
+          valueColor: AlwaysStoppedAnimation(context.ofMieTheme().colorThemeData.accentColor),
+        );
+    ButtonStyle _style = widget.style ??
+        TextButton.styleFrom(
+          backgroundColor: widget.backgroundColor,
+          minimumSize: Size(1, 1),
+          padding: widget.padding,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          elevation: 0,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(0)),
+          ),
+        );
+    Widget child = MButton(widget.text,
+        style: _style,
+        textSize: widget.textSize,
+        padding: EdgeInsets.zero,
+        onTap: widget.onTap != null
+            ? () async {
+                if (_loading) return;
+                setState(() => _loading = true);
+                await widget.onTap!.call().whenComplete(() => setState(() => _loading = false));
+              }
+            : null);
+    var set = Set<MaterialState>();
+    set.add(MaterialState.disabled);
+    final color = _style.backgroundColor?.resolve(set);
+    return Stack(
+      children: [
+        AnimatedOpacity(
+            opacity: _loading ? 0 : 1, duration: Duration(milliseconds: 300), child: child),
+        if (_loading) ...[
+          Positioned.fill(
+              child: Container(
+                  color: color,
+                  child: Center(child: Container(width: 16, height: 16, child: indicator)))),
+        ],
+      ],
     );
-    ButtonStyle _style = widget.style??TextButton.styleFrom(backgroundColor: widget.backgroundColor,minimumSize: Size(0,0),padding: widget.padding,shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(0)),),);
-    Widget child = _loading? TextButton(onPressed: null, child: Container(width: 16,height: 16,child: indicator),style: _style,): MButton(widget.text, style: _style,textSize: widget.textSize,onTap: widget.onTap != null? ()async{
-      if (_loading) return;
-      setState(() => _loading = true);
-      await widget.onTap!.call().whenComplete(()=> setState(() => _loading = false));
-
-    }:null);
-
-    return AnimatedSwitcher(duration: Duration(milliseconds: 200),child: child,);
   }
-
-
-
 }
