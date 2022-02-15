@@ -25,7 +25,10 @@ class _TextFieldsState extends State<TextFields> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('普通默认无边框的输入框:',style: TextStyle(fontSize: 22),),
+          Text(
+            '普通默认无边框的输入框:',
+            style: TextStyle(fontSize: 22),
+          ),
           MTextField(
             text: text,
             group: true,
@@ -35,7 +38,6 @@ class _TextFieldsState extends State<TextFields> {
             style: TextStyle(fontSize: 22),
           ),
           Builder(builder: (context) {
-            print('refresh');
             String? error;
             if (text == '123') {
               error = '错误';

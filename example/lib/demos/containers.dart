@@ -23,20 +23,47 @@ class _ContainersState extends State<Containers> {
       appBar: AppBar(
         title: Text('Contains'),
       ),
-      body: Container(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            MItemContainers(
-              color: Colors.red,
-              child: Text(text),
-            ),
-            MTextField(
-              controller: controller,
-              text: text,
-              onChanged: (_) => setState(() => text = _),
-            ),
-          ],
+      body: GestureDetector(
+        onTap: () {
+          print('最外层');
+        },
+        child: Container(
+          color: Colors.grey,
+          child: MColumn(
+            invert: true,
+            alignment: Alignment.centerLeft,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  print('红');
+                },
+                child: Container(
+                  color: Colors.red,
+                  width: 200,
+                  height: 100,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  print('绿');
+                },
+                child: Container(
+                  color: Colors.green,
+                  width: 320,
+                  height: 120,
+                ),
+              ),
+            ],
+            childrenPosition: [
+              MPosition()
+                ..top = 10
+                ..left = 10
+                ..bottom = 10,
+              MPosition()
+                ..top = -20
+                ..bottom = 10,
+            ],
+          ),
         ),
       ),
     );
