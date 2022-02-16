@@ -14,7 +14,7 @@ class TextFields extends StatefulWidget {
 }
 
 class _TextFieldsState extends State<TextFields> {
-  String text = '';
+  String text = '20';
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +30,8 @@ class _TextFieldsState extends State<TextFields> {
             style: TextStyle(fontSize: 22),
           ),
           MTextField(
-            text: text,
-            group: true,
+            text: '20',
+            onChanged: (_) {},
           ),
           Text(
             '有状态的输入框:',

@@ -2,6 +2,7 @@ import 'package:example/demos/buttons.dart';
 import 'package:example/demos/containers.dart';
 import 'package:example/demos/textfields.dart';
 import 'package:example/demos/texts.dart';
+import 'package:example/demos/tips.dart';
 import 'package:flutter/material.dart';
 import 'package:mie/mie.dart';
 
@@ -35,7 +36,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> data = ['Texts', 'Buttons', 'TextFields', 'Containers'];
+  List<String> data = ['Texts', 'Buttons', 'TextFields', 'Containers','Tips'];
 
   void pushPage(String name) {
     switch (name) {
@@ -50,6 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 'Containers':
         Navigator.push(context, MaterialPageRoute(builder: (context) => Containers()));
+        break;
+      case 'Tips':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TipsDemoPage()));
         break;
       default:
     }
