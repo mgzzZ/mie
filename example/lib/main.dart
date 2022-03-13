@@ -1,5 +1,7 @@
 import 'package:example/demos/buttons.dart';
+import 'package:example/demos/checkbox.dart';
 import 'package:example/demos/containers.dart';
+import 'package:example/demos/radio.dart';
 import 'package:example/demos/textfields.dart';
 import 'package:example/demos/texts.dart';
 import 'package:example/demos/tips.dart';
@@ -36,7 +38,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> data = ['Texts', 'Buttons', 'TextFields', 'Containers','Tips'];
+  List<String> data = ['Texts', 'Buttons', 'TextFields', 'Containers', 'Tips', 'CheckBox', 'Radio'];
 
   void pushPage(String name) {
     switch (name) {
@@ -54,6 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 'Tips':
         Navigator.push(context, MaterialPageRoute(builder: (context) => TipsDemoPage()));
+        break;
+      case 'CheckBox':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MChcekBoxDemoPage()));
+        break;
+      case 'Radio':
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MRadioDemoPage()));
         break;
       default:
     }
