@@ -19,6 +19,14 @@ class _ContainersState extends State<Containers> {
 
   @override
   Widget build(BuildContext context) {
+    Color color = MColor.add(Color.fromRGBO(244, 67, 54, 1.0), Color.fromRGBO(255, 243, 252, 0.56));
+    print('---');
+    print(color.value);
+    print(color.red);
+    print(color.green);
+    print(color.blue);
+    print(color.opacity);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Contains'),
@@ -38,7 +46,7 @@ class _ContainersState extends State<Containers> {
                   print('红');
                 },
                 child: Container(
-                  color: Colors.red,
+                  color: Colors.red[200],
                   width: 200,
                   height: 100,
                 ),
@@ -48,7 +56,7 @@ class _ContainersState extends State<Containers> {
                   print('绿');
                 },
                 child: Container(
-                  color: Colors.green,
+                  color: color,
                   width: 320,
                   height: 120,
                 ),

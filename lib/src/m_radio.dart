@@ -8,11 +8,17 @@ import 'package:mie/src/radio_able.dart';
 ///
 
 class MRadio extends StatefulWidget {
-  const MRadio({Key? key, this.selected, required this.values, required this.onChanged})
-      : super(key: key);
+  const MRadio({
+    Key? key,
+    this.selected,
+    required this.values,
+    required this.onChanged,
+    this.direction = Axis.horizontal,
+  }) : super(key: key);
   final String? selected;
   final List<String> values;
   final ValueChanged<String> onChanged;
+  final Axis direction;
   @override
   _MRadioState createState() => _MRadioState();
 }
@@ -71,6 +77,7 @@ class _MRadioState extends State<MRadio> with MRadioAble<String> {
       spacing: 10,
       runSpacing: 5,
       children: list,
+      direction: widget.direction,
     );
   }
 }

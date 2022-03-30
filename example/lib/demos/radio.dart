@@ -25,6 +25,7 @@ class _MRadioDemoPageState extends State<MRadioDemoPage> {
         child: MRadio(
           selected: str,
           values: ['1', '2', '3'],
+          direction: Axis.vertical,
           onChanged: (String value) {
             print(value);
             setState(() {
