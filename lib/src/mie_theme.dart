@@ -40,7 +40,6 @@ class MieTheme {
   ThemeData copyWithThemeData(ThemeData theme) {
     return theme.copyWith(
       colorScheme: ColorScheme.fromSwatch(
-        primarySwatch: MaterialColor(colorThemeData.accentColor.value, {}),
         accentColor: colorThemeData.accentColor,
         backgroundColor: colorThemeData.appBackGroundColor,
         errorColor: colorThemeData.errorColor,

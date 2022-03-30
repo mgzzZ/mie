@@ -13,10 +13,12 @@ flutter widgets mie mie~~~
 - [x] 按钮
 - [ ] icon
 - [ ] 图片
-- [ ] 占位图
+- [x] 占位图
 - [x] 空页面
 - [x] 输入框
 - [ ] 卡片
 - [x] 多选框
 - [x] 单选框
 - [x] 小红点
+- [ ] Switch
+- [ ] Tag

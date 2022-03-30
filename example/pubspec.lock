@@ -88,6 +88,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  ms_material_color:
+    dependency: "direct main"
+    description:
+      name: ms_material_color
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   path:
     dependency: transitive
     description:
