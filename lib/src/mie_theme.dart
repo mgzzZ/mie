@@ -55,7 +55,6 @@ class MieTheme {
         selectionColor: colorThemeData.accentColor,
       ),
       scaffoldBackgroundColor: colorThemeData.appBackGroundColor,
-      outlinedButtonTheme: OutlinedButtonThemeData(style: OutlinedButton.styleFrom()),
     );
   }
 

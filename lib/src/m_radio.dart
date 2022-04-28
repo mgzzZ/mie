@@ -30,7 +30,7 @@ class _MRadioState extends State<MRadio> with MRadioAble<String> {
   void initState() {
     super.initState();
     if (widget.selected != null && widget.selected!.length != 0) {
-      initSelectedAcrion(widget.selected!);
+      initSelectedAction(widget.selected!);
     }
     updateValueAction();
   }

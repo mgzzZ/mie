@@ -11,4 +11,5 @@ export 'src/m_text.dart';
 export 'src/m_tips.dart';
 export 'src/mie_theme.dart';
 export 'src/radio_able.dart';
+export 'src/switch.dart';
 export 'src/textfild.dart';
