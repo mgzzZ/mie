@@ -28,6 +28,9 @@ class _TipsDemoPageState extends State<TipsDemoPage> {
               child: Text('我测试一下呢'),
             ),
             MTips(),
+            MIcon.icons(
+              icon: Icons.add,
+            ),
           ],
         ),
       ),
