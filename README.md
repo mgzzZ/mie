@@ -11,7 +11,7 @@ flutter widgets mie mie~~~
 - [x] 主题定制
 - [X] 文本
 - [x] 按钮
-- [ ] icon
+- [x] icon
 - [ ] 图片
 - [x] 占位图
 - [x] 空页面
@@ -20,6 +20,7 @@ flutter widgets mie mie~~~
 - [x] 多选框
 - [x] 单选框
 - [x] 小红点
-- [ ] Switch
+- [X] Switch
 - [ ] Tag
 - [ ] 提示框(页面最上方)
+- [ ] 丝滑列表
