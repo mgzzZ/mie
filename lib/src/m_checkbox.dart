@@ -12,13 +12,15 @@ class MCheckBox extends StatefulWidget {
   final ValueChanged<List<String>> onChanged;
   final Widget? selectedWidget;
   final Widget? normalWidget;
+  final Axis direction;
   const MCheckBox(
       {Key? key,
       this.selected,
       required this.values,
       required this.onChanged,
       this.selectedWidget,
-      this.normalWidget})
+      this.normalWidget,
+      this.direction = Axis.horizontal})
       : super(key: key);
 
   @override
@@ -58,29 +60,30 @@ class _MCheckBoxState extends State<MCheckBox> with MCheckAble<String> {
   @override
   Widget build(BuildContext context) {
     updateValue();
-    return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        var value = widget.values[index];
-        bool selected = _list.contains(value);
-        return GestureDetector(
-          onTap: () {
-            var list = selectedAction(value);
-            widget.onChanged(list);
-          },
-          child: Row(
-            children: [
-              selected ? _selectedWidget : _normalWidget,
-              Text(
-                value.toString(),
-                style: TextStyle(fontSize: 10),
-              )
-            ],
-          ),
-        );
-      },
-      itemCount: widget.values.length,
+    List<Widget> list = widget.values.map((e) {
+      bool selected = _list.contains(e);
+      return GestureDetector(
+        onTap: () {
+          var list = selectedAction(e);
+          widget.onChanged(list);
+        },
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            selected ? _selectedWidget : _normalWidget,
+            Text(
+              e.toString(),
+              style: TextStyle(fontSize: 10),
+            )
+          ],
+        ),
+      );
+    }).toList();
+    return Wrap(
+      direction: widget.direction,
+      children: list,
+      runSpacing: 5,
+      spacing: 10,
     );
   }
 }

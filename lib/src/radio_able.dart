@@ -10,7 +10,7 @@ mixin MRadioAble<T> {
     selectedValue = value;
   }
 
-  void initSelectedAcrion(T value) {
+  void initSelectedAction(T value) {
     selectedValue = value;
   }
 }

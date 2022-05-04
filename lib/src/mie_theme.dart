@@ -29,7 +29,6 @@ class MieTheme {
   MCardThemeData cardThemeData;
   MColorThemeData colorThemeData;
 
-
   MieTheme({
     required this.textThemeData,
     required this.buttonThemeData,
@@ -40,6 +39,12 @@ class MieTheme {
 
   ThemeData copyWithThemeData(ThemeData theme) {
     return theme.copyWith(
+      colorScheme: ColorScheme.fromSwatch(
+        accentColor: colorThemeData.accentColor,
+        backgroundColor: colorThemeData.appBackGroundColor,
+        errorColor: colorThemeData.errorColor,
+        cardColor: colorThemeData.cardColor,
+      ),
       canvasColor: Colors.transparent,
       accentColor: colorThemeData.accentColor,
       primaryColor: colorThemeData.accentColor,
@@ -74,16 +79,19 @@ class MieDefaultTheme extends MieTheme {
       : super(
           textThemeData: MTextThemeData(),
           buttonThemeData: MButtonThemeData(
-            mainBackGroundColor: Colors.green,
-            mainTextColor: Colors.black,
-            secondaryBackGroundColor: Colors.red,
-            secondaryTextColor: Colors.white,
-            mainCor: 0,
-            secondaryCor: 4
-          ),
+              mainBackGroundColor: Colors.green,
+              mainTextColor: Colors.black,
+              secondaryBackGroundColor: Colors.red,
+              secondaryTextColor: Colors.white,
+              mainCor: 0,
+              secondaryCor: 4),
           cardThemeData: MCardThemeData(),
-          colorThemeData:
-              MColorThemeData(appBackGroundColor: Color(0xfff5f5f5), accentColor: Colors.yellow),
+          colorThemeData: MColorThemeData(
+            appBackGroundColor: Color(0xfff5f5f5),
+            accentColor: Colors.yellow,
+            cardColor: Color(0xfff5f5f5),
+            errorColor: Colors.red,
+          ),
           iconThemeData: MIconThemeData(),
         );
 }
@@ -95,10 +103,10 @@ class MButtonThemeData {
   Color mainTextColor;
   Color secondaryBackGroundColor;
   Color secondaryTextColor;
+
   /// 圆角
   double mainCor;
   double secondaryCor;
-
 
   MButtonThemeData({
     required this.mainBackGroundColor,
@@ -117,9 +125,13 @@ class MCardThemeData {}
 class MColorThemeData {
   Color appBackGroundColor;
   Color accentColor;
+  Color errorColor;
+  Color cardColor;
 
   MColorThemeData({
     required this.appBackGroundColor,
     required this.accentColor,
+    required this.errorColor,
+    required this.cardColor,
   });
 }

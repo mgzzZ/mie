@@ -23,7 +23,7 @@ class MButton extends TextButton {
           style: style ??
               TextButton.styleFrom(
                 backgroundColor: backgroundColor,
-                minimumSize: Size(1, 1),
+                minimumSize: Size(64, 1),
                 padding: padding,
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 shape: const RoundedRectangleBorder(
@@ -40,7 +40,7 @@ class MButton extends TextButton {
         primary: theme.mainTextColor,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        minimumSize: Size(1, 1),
+        minimumSize: Size(64, 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),
         ),
@@ -61,7 +61,7 @@ class MButton extends TextButton {
           primary: theme.secondaryTextColor,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          minimumSize: Size(1, 1),
+          minimumSize: Size(64, 1),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),
           ));
@@ -104,7 +104,7 @@ class MStateButton extends StatefulWidget {
         backgroundColor: theme.mainBackGroundColor,
         primary: theme.mainTextColor,
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-        minimumSize: Size(1, 1),
+        minimumSize: Size(64, 1),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),
@@ -125,7 +125,7 @@ class MStateButton extends StatefulWidget {
           backgroundColor: theme.secondaryBackGroundColor,
           primary: theme.secondaryTextColor,
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          minimumSize: Size(1, 1),
+          minimumSize: Size(64, 1),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),
@@ -160,7 +160,7 @@ class _MStateButtonState extends State<MStateButton> {
     ButtonStyle _style = widget.style ??
         TextButton.styleFrom(
           backgroundColor: widget.backgroundColor,
-          minimumSize: Size(1, 1),
+          minimumSize: Size(64, 1),
           padding: widget.padding,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           elevation: 0,
