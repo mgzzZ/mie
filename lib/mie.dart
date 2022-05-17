@@ -13,3 +13,4 @@ export 'src/mie_theme.dart';
 export 'src/radio_able.dart';
 export 'src/switch.dart';
 export 'src/textfild.dart';
+export 'src/m_placeholder.dart';
