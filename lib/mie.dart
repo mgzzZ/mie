@@ -2,7 +2,6 @@ library mie;
 
 export 'src/buttons.dart';
 export 'src/check_able.dart';
-export 'src/colors.dart';
 export 'src/containers.dart';
 export 'src/icon.dart';
 export 'src/m_checkbox.dart';
