@@ -1,5 +1,51 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+@immutable
+class MColorData extends ThemeExtension<MColorData> {
+  final Color? mainButtonBackGroundColor;
+  final Color? mainButtonTextColor;
+  final Color? secondaryButtonBackGroundColor;
+  final Color? secondaryButtonTextColor;
+
+  const MColorData({
+    required this.mainButtonBackGroundColor,
+    required this.mainButtonTextColor,
+    required this.secondaryButtonBackGroundColor,
+    required this.secondaryButtonTextColor,
+  });
+
+  @override
+  ThemeExtension<MColorData> copyWith({
+    Color? mainButtonBackGroundColor,
+    Color? mainButtonTextColor,
+    Color? secondaryButtonBackGroundColor,
+    Color? secondaryButtonTextColor,
+  }) {
+    return MColorData(
+      mainButtonBackGroundColor: mainButtonBackGroundColor ?? this.mainButtonBackGroundColor,
+      mainButtonTextColor: mainButtonTextColor ?? this.mainButtonTextColor,
+      secondaryButtonBackGroundColor:
+          secondaryButtonBackGroundColor ?? this.secondaryButtonBackGroundColor,
+      secondaryButtonTextColor: secondaryButtonTextColor ?? this.secondaryButtonTextColor,
+    );
+  }
+
+  @override
+  ThemeExtension<MColorData> lerp(ThemeExtension<MColorData>? other, double t) {
+    if (other is! MColorData) {
+      return this;
+    }
+    return MColorData(
+      mainButtonBackGroundColor:
+          Color.lerp(mainButtonBackGroundColor, other.mainButtonBackGroundColor, t),
+      mainButtonTextColor: Color.lerp(mainButtonTextColor, other.mainButtonTextColor, t),
+      secondaryButtonBackGroundColor:
+          Color.lerp(secondaryButtonBackGroundColor, other.secondaryButtonBackGroundColor, t),
+      secondaryButtonTextColor:
+          Color.lerp(mainButtonBackGroundColor, other.mainButtonBackGroundColor, t),
+    );
+  }
+}
 
 class MieWrapWidget extends InheritedWidget {
   final Widget child;
@@ -46,10 +92,7 @@ class MieTheme {
         cardColor: colorThemeData.cardColor,
       ),
       canvasColor: Colors.transparent,
-      accentColor: colorThemeData.accentColor,
       primaryColor: colorThemeData.accentColor,
-      //待更换
-      buttonColor: buttonThemeData.mainBackGroundColor,
       textSelectionTheme: theme.textSelectionTheme.copyWith(
         cursorColor: colorThemeData.accentColor,
         selectionColor: colorThemeData.accentColor,
