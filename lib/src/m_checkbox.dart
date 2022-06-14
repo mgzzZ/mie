@@ -13,15 +13,15 @@ class MCheckBox extends StatefulWidget {
   final Widget? selectedWidget;
   final Widget? normalWidget;
   final Axis direction;
-  const MCheckBox(
-      {Key? key,
-      this.selected,
-      required this.values,
-      required this.onChanged,
-      this.selectedWidget,
-      this.normalWidget,
-      this.direction = Axis.horizontal})
-      : super(key: key);
+  const MCheckBox({
+    Key? key,
+    this.selected,
+    required this.values,
+    required this.onChanged,
+    this.selectedWidget,
+    this.normalWidget,
+    this.direction = Axis.horizontal,
+  }) : super(key: key);
 
   @override
   _MCheckBoxState createState() => _MCheckBoxState();

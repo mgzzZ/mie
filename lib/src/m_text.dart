@@ -41,10 +41,7 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -68,10 +65,7 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -93,10 +87,7 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -118,10 +109,7 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -144,10 +132,7 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -170,17 +155,14 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
     });
   }
 
-  /// Used for emphasizing text that would otherwise be [bodyText2].
+  /// Used for emphasizing text that would otherwise be [bodyText1].
   static Widget body1(
     String data, {
     Color? textColor,
@@ -195,17 +177,14 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
     });
   }
 
-  /// The default text style for [Material].
+  /// The default text style for [bodyText2].
   static Widget body2(
     String data, {
     Color? textColor,
@@ -220,17 +199,14 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
     });
   }
 
-  /// Used for the primary text in lists (e.g., [ListTile.title]).
+  /// Used for the primary text in lists (e.g., [ListTile.subtitle1]).
   static Widget subTitle1(
     String data, {
     Color? textColor,
@@ -245,17 +221,14 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
     });
   }
 
-  /// For medium emphasis text that's a little smaller than [subtitle1].
+  /// For medium emphasis text that's a little smaller than [subtitle2].
   static Widget subTitle2(
     String data, {
     Color? textColor,
@@ -270,10 +243,7 @@ class MText extends StatelessWidget {
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor,
-            fontWeight: fontWeight,
-            fontFamily: fontName,
-            fontSize: fontSize),
+            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -284,10 +254,7 @@ class MText extends StatelessWidget {
   Widget build(BuildContext context) {
     TextStyle style = textStyle ??
         TextStyle(
-            color: textColor,
-            fontSize: fontSize,
-            fontFamily: fontName,
-            fontWeight: fontWeight);
+            color: textColor, fontSize: fontSize, fontFamily: fontName, fontWeight: fontWeight);
 
     return Text(
       data,

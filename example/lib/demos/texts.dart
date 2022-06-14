@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mie/mie.dart';
 
 ///
 /// Created by zgm on 2022/1/13
@@ -19,7 +20,16 @@ class _TextsState extends State<Texts> {
       appBar: AppBar(
         title: Text('Texts'),
       ),
-      body: Container(),
+      body: Container(
+        child: MSelectorTag(
+          text: '111',
+          selected: true,
+          type: MSelectorType.wireframe,
+          widgetType: MSelectorWidgetType.tips,
+          onTap: () {},
+          onChanged: (selected) {},
+        ),
+      ),
     );
   }
 }
