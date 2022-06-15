@@ -34,15 +34,15 @@ class MButton extends TextButton {
 
   static Widget main(String text, {VoidCallback? onTap}) {
     return Builder(builder: (context) {
-      MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
+      final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
       ButtonStyle style = TextButton.styleFrom(
-        backgroundColor: theme.mainBackGroundColor,
-        primary: theme.mainTextColor,
+        backgroundColor: buttonThemeEtx?.mainBackGroundColor,
+        primary: buttonThemeEtx?.mainTextColor,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         minimumSize: Size(64, 1),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),
+          borderRadius: BorderRadius.all(Radius.circular(buttonThemeEtx?.mainRadius ?? 0)),
         ),
       );
       return MButton(
@@ -55,15 +55,15 @@ class MButton extends TextButton {
 
   static Widget secondary(String text, {VoidCallback? onTap}) {
     return Builder(builder: (context) {
-      MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
+      final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
       ButtonStyle style = TextButton.styleFrom(
-          backgroundColor: theme.secondaryBackGroundColor,
-          primary: theme.secondaryTextColor,
+          backgroundColor: buttonThemeEtx?.secondaryBackGroundColor,
+          primary: buttonThemeEtx?.secondaryTextColor,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           minimumSize: Size(64, 1),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),
+            borderRadius: BorderRadius.all(Radius.circular(buttonThemeEtx?.secondaryRadius ?? 0)),
           ));
       return MButton(
         text,
@@ -99,15 +99,15 @@ class MStateButton extends StatefulWidget {
 
   static Widget main(String text, {Future Function()? onTap}) {
     return Builder(builder: (context) {
-      MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
+      final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
       ButtonStyle style = TextButton.styleFrom(
-        backgroundColor: theme.mainBackGroundColor,
-        primary: theme.mainTextColor,
+        backgroundColor: buttonThemeEtx?.mainBackGroundColor,
+        primary: buttonThemeEtx?.mainTextColor,
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         minimumSize: Size(64, 1),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(theme.mainCor)),
+          borderRadius: BorderRadius.all(Radius.circular(buttonThemeEtx?.mainRadius ?? 0)),
         ),
       );
       return MStateButton(
@@ -120,15 +120,15 @@ class MStateButton extends StatefulWidget {
 
   static Widget secondary(String text, {Future Function()? onTap}) {
     return Builder(builder: (context) {
-      MButtonThemeData theme = context.ofMieTheme().buttonThemeData;
+      final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
       ButtonStyle style = TextButton.styleFrom(
-          backgroundColor: theme.secondaryBackGroundColor,
-          primary: theme.secondaryTextColor,
+          backgroundColor: buttonThemeEtx?.secondaryBackGroundColor,
+          primary: buttonThemeEtx?.secondaryTextColor,
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           minimumSize: Size(64, 1),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(theme.secondaryCor)),
+            borderRadius: BorderRadius.all(Radius.circular(buttonThemeEtx?.secondaryRadius ?? 0)),
           ));
       return MStateButton(
         text,
@@ -152,10 +152,12 @@ class _MStateButtonState extends State<MStateButton> {
 
   @override
   Widget build(BuildContext context) {
+    final colorThemeEtx = Theme.of(context).extension<MColorThemeEtx>();
+
     final Widget indicator = widget.loadingWidget ??
         CircularProgressIndicator(
           strokeWidth: 3,
-          valueColor: AlwaysStoppedAnimation(context.ofMieTheme().colorThemeData.accentColor),
+          valueColor: AlwaysStoppedAnimation(colorThemeEtx?.accentColor),
         );
     ButtonStyle _style = widget.style ??
         TextButton.styleFrom(

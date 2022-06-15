@@ -18,13 +18,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return MieWrapWidget(
-      theme: MieDefaultTheme(),
-      child: MaterialApp(
-        title: 'Mie Flutter Demo',
-        theme: context.ofMieTheme().copyWithThemeData(theme),
-        home: MyHomePage(title: 'Mie Demo List Page'),
-      ),
+    return MaterialApp(
+      title: 'Mie Flutter Demo',
+      theme: theme.copyWith(extensions: [
+        MButtonThemeEtx(
+            mainBackGroundColor: Colors.blue,
+            mainTextColor: Colors.white,
+            secondaryBackGroundColor: Colors.white,
+            secondaryTextColor: Colors.blue,
+            mainRadius: 0,
+            secondaryRadius: 0),
+        MColorThemeEtx(
+            appBackGroundColor: Color(0xFFF5F5F5),
+            accentColor: Colors.blue,
+            errorColor: Colors.red,
+            cardColor: Colors.white70),
+      ]),
+      home: MyHomePage(title: 'Mie Demo List Page'),
     );
   }
 }
