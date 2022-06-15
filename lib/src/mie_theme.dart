@@ -48,7 +48,7 @@ class MColorThemeEtx extends ThemeExtension<MColorThemeEtx> {
   String toString() {
     return 'MColorThemeEtx('
         'appBackGroundColor: $appBackGroundColor,'
-        ' accentColor: $accentColor, '
+        'accentColor: $accentColor, '
         'errorColor: $errorColor, '
         'cardColor: $cardColor'
         ')';
@@ -112,7 +112,12 @@ class MButtonThemeEtx extends ThemeExtension<MButtonThemeEtx> {
   @override
   String toString() {
     return 'MButtonThemeEtx('
-        'mainBackGroundColor:$mainBackGroundColor,mainTextColor:$mainTextColor,secondaryBackGroundColor:$secondaryBackGroundColor,secondaryTextColor:$secondaryTextColor,mainRadius:$mainRadius,secondaryRadius:$secondaryRadius'
+        'mainBackGroundColor:$mainBackGroundColor,'
+        'mainTextColor:$mainTextColor,'
+        'secondaryBackGroundColor:$secondaryBackGroundColor,'
+        'secondaryTextColor:$secondaryTextColor,'
+        'mainRadius:$mainRadius,'
+        'secondaryRadius:$secondaryRadius'
         ')';
   }
 }
