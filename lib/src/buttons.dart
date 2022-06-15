@@ -75,16 +75,17 @@ class MButton extends TextButton {
 }
 
 class MStateButton extends StatefulWidget {
-  const MStateButton(this.text,
-      {Key? key,
-      this.onTap,
-      this.backgroundColor,
-      this.textColor,
-      this.padding,
-      this.textSize,
-      this.style,
-      this.loadingWidget})
-      : super(key: key);
+  const MStateButton(
+    this.text, {
+    Key? key,
+    this.onTap,
+    this.backgroundColor,
+    this.textColor,
+    this.padding,
+    this.textSize,
+    this.style,
+    this.loadingWidget,
+  }) : super(key: key);
   final String text;
   final Future Function()? onTap;
   final Color? backgroundColor;
@@ -103,6 +104,7 @@ class MStateButton extends StatefulWidget {
       ButtonStyle style = TextButton.styleFrom(
         backgroundColor: buttonThemeEtx?.mainBackGroundColor,
         primary: buttonThemeEtx?.mainTextColor,
+        textStyle: TextStyle(color: buttonThemeEtx?.mainTextColor),
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         minimumSize: Size(64, 1),
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -125,6 +127,7 @@ class MStateButton extends StatefulWidget {
           backgroundColor: buttonThemeEtx?.secondaryBackGroundColor,
           primary: buttonThemeEtx?.secondaryTextColor,
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          textStyle: TextStyle(color: buttonThemeEtx?.secondaryTextColor),
           minimumSize: Size(64, 1),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           shape: RoundedRectangleBorder(
@@ -152,23 +155,26 @@ class _MStateButtonState extends State<MStateButton> {
 
   @override
   Widget build(BuildContext context) {
-    final colorThemeEtx = Theme.of(context).extension<MColorThemeEtx>();
-
-    final Widget indicator = widget.loadingWidget ??
-        CircularProgressIndicator(
-          strokeWidth: 3,
-          valueColor: AlwaysStoppedAnimation(colorThemeEtx?.accentColor),
-        );
     ButtonStyle _style = widget.style ??
         TextButton.styleFrom(
           backgroundColor: widget.backgroundColor,
           minimumSize: Size(64, 1),
           padding: widget.padding,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          textStyle: TextStyle(color: widget.textColor),
           elevation: 0,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(0)),
           ),
+        );
+    var set = Set<MaterialState>();
+    set.add(MaterialState.disabled);
+    final color = _style.backgroundColor?.resolve(set);
+    final textColor = _style.textStyle?.resolve(set)?.color;
+    final Widget indicator = widget.loadingWidget ??
+        CircularProgressIndicator(
+          strokeWidth: 3,
+          valueColor: AlwaysStoppedAnimation(textColor),
         );
     Widget child = MButton(widget.text,
         style: _style,
@@ -181,9 +187,7 @@ class _MStateButtonState extends State<MStateButton> {
                 await widget.onTap!.call().whenComplete(() => setState(() => _loading = false));
               }
             : null);
-    var set = Set<MaterialState>();
-    set.add(MaterialState.disabled);
-    final color = _style.backgroundColor?.resolve(set);
+
     return Stack(
       children: [
         AnimatedOpacity(
