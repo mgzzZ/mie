@@ -20,6 +20,12 @@ class MyApp extends StatelessWidget {
     final theme = Theme.of(context);
     return MaterialApp(
       title: 'Mie Flutter Demo',
+      darkTheme: theme.copyWith(
+        extensions: [
+          MTextThemeEtx(textColor: Colors.white),
+          MPrimaryColorThemeEtx(color: Color(0x2654FF)),
+        ],
+      ),
       theme: theme.copyWith(extensions: [
         MButtonThemeEtx(
             mainBackGroundColor: Colors.blue,
@@ -29,10 +35,13 @@ class MyApp extends StatelessWidget {
             mainRadius: 0,
             secondaryRadius: 0),
         MColorThemeEtx(
-            appBackGroundColor: Color(0xFFF5F5F5),
-            accentColor: Colors.blue,
-            errorColor: Colors.red,
-            cardColor: Colors.white70),
+          appBackGroundColor: Color(0xFFF5F5F5),
+          errorColor: Colors.red,
+          cardColor: Colors.white70,
+          // textColor: Color(0x29303D),
+        ),
+        MTextThemeEtx(textColor: Color(0x29303D)),
+        MPrimaryColorThemeEtx(color: Color(0x2654FF)),
       ]),
       home: MyHomePage(title: 'Mie Demo List Page'),
     );

@@ -2,16 +2,15 @@ import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
 
+/// 情景色
 @immutable
 class MColorThemeEtx extends ThemeExtension<MColorThemeEtx> {
   final Color? appBackGroundColor;
-  final Color? accentColor;
   final Color? errorColor;
   final Color? cardColor;
 
-  const MColorThemeEtx({
+  MColorThemeEtx({
     required this.appBackGroundColor,
-    required this.accentColor,
     required this.errorColor,
     required this.cardColor,
   });
@@ -25,7 +24,6 @@ class MColorThemeEtx extends ThemeExtension<MColorThemeEtx> {
   }) {
     return MColorThemeEtx(
       appBackGroundColor: appBackGroundColor ?? this.appBackGroundColor,
-      accentColor: accentColor ?? this.accentColor,
       errorColor: errorColor ?? this.errorColor,
       cardColor: cardColor ?? this.cardColor,
     );
@@ -38,7 +36,6 @@ class MColorThemeEtx extends ThemeExtension<MColorThemeEtx> {
     }
     return MColorThemeEtx(
       appBackGroundColor: Color.lerp(appBackGroundColor, other.appBackGroundColor, t),
-      accentColor: Color.lerp(accentColor, other.accentColor, t),
       errorColor: Color.lerp(errorColor, other.errorColor, t),
       cardColor: Color.lerp(cardColor, other.cardColor, t),
     );
@@ -48,13 +45,13 @@ class MColorThemeEtx extends ThemeExtension<MColorThemeEtx> {
   String toString() {
     return 'MColorThemeEtx('
         'appBackGroundColor: $appBackGroundColor,'
-        'accentColor: $accentColor, '
         'errorColor: $errorColor, '
         'cardColor: $cardColor'
         ')';
   }
 }
 
+/// 按钮色
 @immutable
 class MButtonThemeEtx extends ThemeExtension<MButtonThemeEtx> {
   final Color? mainBackGroundColor;
@@ -65,7 +62,6 @@ class MButtonThemeEtx extends ThemeExtension<MButtonThemeEtx> {
   /// 圆角
   final double? mainRadius;
   final double? secondaryRadius;
-
   const MButtonThemeEtx({
     required this.mainBackGroundColor,
     required this.mainTextColor,
@@ -118,6 +114,102 @@ class MButtonThemeEtx extends ThemeExtension<MButtonThemeEtx> {
         'secondaryTextColor:$secondaryTextColor,'
         'mainRadius:$mainRadius,'
         'secondaryRadius:$secondaryRadius'
+        ')';
+  }
+}
+
+/// 文本色
+class MTextThemeEtx extends ThemeExtension<MTextThemeEtx> {
+  final Color? textColor;
+  Color n1;
+  Color n2;
+  Color n3;
+  Color n4;
+  Color n5;
+  Color n6;
+  Color n7;
+  Color n8;
+  MTextThemeEtx({
+    required this.textColor,
+  })  : n8 = textColor ?? Colors.black,
+        n7 = (textColor ?? Colors.black).withOpacity(0.8),
+        n6 = (textColor ?? Colors.black).withOpacity(0.56),
+        n5 = (textColor ?? Colors.black).withOpacity(0.32),
+        n4 = (textColor ?? Colors.black).withOpacity(0.2),
+        n3 = (textColor ?? Colors.black).withOpacity(0.12),
+        n2 = (textColor ?? Colors.black).withOpacity(0.08),
+        n1 = (textColor ?? Colors.black).withOpacity(0.04);
+
+  @override
+  ThemeExtension<MTextThemeEtx> copyWith({
+    Color? textColor,
+  }) {
+    return MTextThemeEtx(
+      textColor: textColor ?? this.textColor,
+    );
+  }
+
+  @override
+  ThemeExtension<MTextThemeEtx> lerp(ThemeExtension<MTextThemeEtx>? other, double t) {
+    if (other is! MTextThemeEtx) {
+      return this;
+    }
+    return MTextThemeEtx(
+      textColor: Color.lerp(textColor, other.textColor, t),
+    );
+  }
+
+  @override
+  String toString() {
+    return 'MTextThemeEtx('
+        'textColor:$textColor,'
+        ')';
+  }
+}
+
+/// 主色
+
+class MPrimaryColorThemeEtx extends ThemeExtension<MPrimaryColorThemeEtx> {
+  final Color? color;
+  Color b1;
+  Color b2;
+  Color b3;
+  Color b4;
+  Color b5;
+  Color b6;
+  MPrimaryColorThemeEtx({
+    required this.color,
+  })  : b6 = Color.alphaBlend(Colors.black.withOpacity(0.4), (color ?? Colors.blue)),
+        b5 = Color.alphaBlend(Colors.black.withOpacity(0.2), (color ?? Colors.blue)),
+        b4 = (color ?? Colors.blue),
+        b3 = (color ?? Colors.blue).withOpacity(0.8),
+        b2 = (color ?? Colors.blue).withOpacity(0.5),
+        b1 = (color ?? Colors.blue).withOpacity(0.1);
+
+  @override
+  ThemeExtension<MPrimaryColorThemeEtx> copyWith({
+    Color? textColor,
+  }) {
+    return MPrimaryColorThemeEtx(
+      color: color ?? this.color,
+    );
+  }
+
+  @override
+  ThemeExtension<MPrimaryColorThemeEtx> lerp(
+      ThemeExtension<MPrimaryColorThemeEtx>? other, double t) {
+    if (other is! MPrimaryColorThemeEtx) {
+      return this;
+    }
+    return MPrimaryColorThemeEtx(
+      color: Color.lerp(color, other.color, t),
+    );
+  }
+
+  @override
+  String toString() {
+    return 'MPrimaryColorThemeEtx('
+        'color:$color,'
         ')';
   }
 }

@@ -18,7 +18,10 @@ class MButton extends TextButton {
     this.style,
     this.padding,
   }) : super(
-          child: Text(text),
+          child: Text(
+            text,
+            style: TextStyle(color: textColor),
+          ),
           onPressed: onTap,
           style: style ??
               TextButton.styleFrom(
@@ -29,6 +32,7 @@ class MButton extends TextButton {
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(0)),
                 ),
+                textStyle: TextStyle(color: textColor),
               ),
         );
 
