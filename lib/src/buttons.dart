@@ -39,9 +39,17 @@ class MButton extends TextButton {
   static Widget main(String text, {VoidCallback? onTap}) {
     return Builder(builder: (context) {
       final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
+      final primaryThemeEtx = Theme.of(context).extension<MPrimaryColorThemeEtx>();
+      final textThemeEtx = Theme.of(context).extension<MTextThemeEtx>();
+      Color backGroundColor = buttonThemeEtx?.mainBackGroundColor ??
+          primaryThemeEtx?.color ??
+          Theme.of(context).primaryColor;
+
+      Color textColor = buttonThemeEtx?.mainTextColor ?? textThemeEtx?.n8 ?? Colors.black;
+
       ButtonStyle style = TextButton.styleFrom(
-        backgroundColor: buttonThemeEtx?.mainBackGroundColor,
-        primary: buttonThemeEtx?.mainTextColor,
+        backgroundColor: backGroundColor,
+        primary: textColor,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         minimumSize: Size(64, 1),
@@ -60,9 +68,17 @@ class MButton extends TextButton {
   static Widget secondary(String text, {VoidCallback? onTap}) {
     return Builder(builder: (context) {
       final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
+      final primaryThemeEtx = Theme.of(context).extension<MPrimaryColorThemeEtx>();
+      final textThemeEtx = Theme.of(context).extension<MTextThemeEtx>();
+      Color backGroundColor =
+          buttonThemeEtx?.secondaryBackGroundColor ?? textThemeEtx?.n8 ?? Colors.white;
+
+      Color textColor = buttonThemeEtx?.secondaryTextColor ??
+          primaryThemeEtx?.color ??
+          Theme.of(context).primaryColor;
       ButtonStyle style = TextButton.styleFrom(
-          backgroundColor: buttonThemeEtx?.secondaryBackGroundColor,
-          primary: buttonThemeEtx?.secondaryTextColor,
+          backgroundColor: backGroundColor,
+          primary: textColor,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           minimumSize: Size(64, 1),
@@ -105,9 +121,16 @@ class MStateButton extends StatefulWidget {
   static Widget main(String text, {Future Function()? onTap}) {
     return Builder(builder: (context) {
       final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
+      final primaryThemeEtx = Theme.of(context).extension<MPrimaryColorThemeEtx>();
+      final textThemeEtx = Theme.of(context).extension<MTextThemeEtx>();
+      Color backGroundColor = buttonThemeEtx?.mainBackGroundColor ??
+          primaryThemeEtx?.color ??
+          Theme.of(context).primaryColor;
+
+      Color textColor = buttonThemeEtx?.mainTextColor ?? textThemeEtx?.n8 ?? Colors.black;
       ButtonStyle style = TextButton.styleFrom(
-        backgroundColor: buttonThemeEtx?.mainBackGroundColor,
-        primary: buttonThemeEtx?.mainTextColor,
+        backgroundColor: backGroundColor,
+        primary: textColor,
         textStyle: TextStyle(color: buttonThemeEtx?.mainTextColor),
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         minimumSize: Size(64, 1),
@@ -127,9 +150,17 @@ class MStateButton extends StatefulWidget {
   static Widget secondary(String text, {Future Function()? onTap}) {
     return Builder(builder: (context) {
       final buttonThemeEtx = Theme.of(context).extension<MButtonThemeEtx>();
+      final primaryThemeEtx = Theme.of(context).extension<MPrimaryColorThemeEtx>();
+      final textThemeEtx = Theme.of(context).extension<MTextThemeEtx>();
+      Color backGroundColor =
+          buttonThemeEtx?.secondaryBackGroundColor ?? textThemeEtx?.n8 ?? Colors.white;
+
+      Color textColor = buttonThemeEtx?.secondaryTextColor ??
+          primaryThemeEtx?.color ??
+          Theme.of(context).primaryColor;
       ButtonStyle style = TextButton.styleFrom(
-          backgroundColor: buttonThemeEtx?.secondaryBackGroundColor,
-          primary: buttonThemeEtx?.secondaryTextColor,
+          backgroundColor: backGroundColor,
+          primary: textColor,
           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           textStyle: TextStyle(color: buttonThemeEtx?.secondaryTextColor),
           minimumSize: Size(64, 1),

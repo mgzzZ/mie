@@ -7,21 +7,26 @@ import 'package:mie/mie.dart';
 ///
 
 class MCheckContainer extends StatefulWidget {
-  const MCheckContainer(
-      {Key? key,
-      this.selected,
-      required this.values,
-      required this.onChanged,
-      required this.direction,
-      this.type,
-      this.widgetType})
-      : super(key: key);
+  const MCheckContainer({
+    Key? key,
+    this.selected,
+    required this.values,
+    required this.onChanged,
+    required this.direction,
+    this.type,
+    this.widgetType,
+    this.runSpacing = 0.0,
+    this.spacing = 0.0,
+  }) : super(key: key);
   final List<String>? selected;
   final List<String> values;
   final ValueChanged<List<String>> onChanged;
   final Axis direction;
   final MSelectorType? type;
   final MSelectorWidgetType? widgetType;
+  final double runSpacing;
+  final double spacing;
+
   @override
   _MCheckContainerState createState() => _MCheckContainerState();
 }
@@ -61,8 +66,8 @@ class _MCheckContainerState extends State<MCheckContainer> with MCheckAble<Strin
     return Wrap(
       direction: widget.direction,
       children: list,
-      runSpacing: 5,
-      spacing: 10,
+      runSpacing: widget.runSpacing,
+      spacing: widget.spacing,
     );
   }
 }

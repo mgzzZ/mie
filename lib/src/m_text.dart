@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mie/mie.dart';
 
 class MText extends StatelessWidget {
   final String data;
@@ -38,10 +39,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.headline1;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -62,10 +67,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.headline2;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -84,10 +93,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.headline3;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -106,10 +119,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.headline4;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -129,10 +146,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.headline5;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -152,10 +173,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.headline6;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -174,10 +199,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.bodyText1;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -196,10 +225,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.bodyText2;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -218,10 +251,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.subtitle1;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );
@@ -240,10 +277,14 @@ class MText extends StatelessWidget {
   }) {
     return Builder(builder: (context) {
       TextStyle? textStyle = Theme.of(context).textTheme.subtitle2;
+      Color? color = Theme.of(context).extension<MTextThemeEtx>()?.n8;
       return MText(
         data: data,
         textStyle: textStyle?.copyWith(
-            color: textColor, fontWeight: fontWeight, fontFamily: fontName, fontSize: fontSize),
+            color: textColor ?? color,
+            fontWeight: fontWeight,
+            fontFamily: fontName,
+            fontSize: fontSize),
         textAlign: textAlign,
         maxLines: maxLines,
       );

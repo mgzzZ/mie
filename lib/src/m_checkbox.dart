@@ -13,6 +13,8 @@ class MCheckBox extends StatefulWidget {
   final Widget? selectedWidget;
   final Widget? normalWidget;
   final Axis direction;
+  final double runSpacing;
+  final double spacing;
   const MCheckBox({
     Key? key,
     this.selected,
@@ -21,6 +23,8 @@ class MCheckBox extends StatefulWidget {
     this.selectedWidget,
     this.normalWidget,
     this.direction = Axis.horizontal,
+    this.runSpacing = 0.0,
+    this.spacing = 0.0,
   }) : super(key: key);
 
   @override
@@ -82,8 +86,8 @@ class _MCheckBoxState extends State<MCheckBox> with MCheckAble<String> {
     return Wrap(
       direction: widget.direction,
       children: list,
-      runSpacing: 5,
-      spacing: 10,
+      runSpacing: widget.runSpacing,
+      spacing: widget.spacing,
     );
   }
 }

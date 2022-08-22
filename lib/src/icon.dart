@@ -53,6 +53,8 @@ class MIcon extends StatelessWidget {
             height: _size,
             child: Image.asset(
               url!,
+              width: _size,
+              height: _size,
             ));
       case _IconType.svg:
         return SvgPicture.asset(
