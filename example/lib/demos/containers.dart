@@ -28,7 +28,7 @@ class _ContainersState extends State<Containers> {
           print('最外层');
         },
         child: Container(
-          color: Colors.grey,
+          color: Colors.white,
           child: MColumn(
             invert: true,
             alignment: Alignment.centerLeft,
@@ -48,7 +48,7 @@ class _ContainersState extends State<Containers> {
                   print('绿');
                 },
                 child: Container(
-                  color: Colors.green,
+                  color: context.b4,
                   width: 320,
                   height: 120,
                 ),

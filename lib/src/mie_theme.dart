@@ -18,7 +18,6 @@ class MColorThemeEtx extends ThemeExtension<MColorThemeEtx> {
   @override
   ThemeExtension<MColorThemeEtx> copyWith({
     Color? appBackGroundColor,
-    Color? accentColor,
     Color? errorColor,
     Color? cardColor,
   }) {
@@ -210,6 +209,73 @@ class MPrimaryColorThemeEtx extends ThemeExtension<MPrimaryColorThemeEtx> {
   String toString() {
     return 'MPrimaryColorThemeEtx('
         'color:$color,'
+        ')';
+  }
+}
+
+/// 情绪色
+/// Emotional color
+
+class MEmotionalColorThemeEtx extends ThemeExtension<MEmotionalColorThemeEtx> {
+  final Color? yellowColor;
+  final Color? orangeColor;
+  final Color? redColor;
+  final Color? greenColor;
+  Color y1;
+  Color y4;
+  Color o1;
+  Color o4;
+  Color r1;
+  Color r4;
+  Color g1;
+  Color g4;
+  MEmotionalColorThemeEtx({
+    required this.yellowColor,
+    required this.orangeColor,
+    required this.redColor,
+    required this.greenColor,
+  })  : y1 = (yellowColor ?? Colors.yellow).withOpacity(0.1),
+        y4 = (yellowColor ?? Colors.yellow).withOpacity(0.4),
+        o1 = (orangeColor ?? Colors.orange).withOpacity(0.1),
+        o4 = (orangeColor ?? Colors.orange).withOpacity(0.4),
+        r1 = (redColor ?? Colors.red).withOpacity(0.1),
+        r4 = (redColor ?? Colors.red).withOpacity(0.4),
+        g1 = (greenColor ?? Colors.green).withOpacity(0.1),
+        g4 = (greenColor ?? Colors.green).withOpacity(0.4);
+
+  @override
+  ThemeExtension<MEmotionalColorThemeEtx> copyWith({
+    Color? textColor,
+  }) {
+    return MEmotionalColorThemeEtx(
+      yellowColor: yellowColor ?? this.yellowColor,
+      orangeColor: orangeColor ?? this.orangeColor,
+      redColor: redColor ?? this.redColor,
+      greenColor: greenColor ?? this.greenColor,
+    );
+  }
+
+  @override
+  ThemeExtension<MEmotionalColorThemeEtx> lerp(
+      ThemeExtension<MEmotionalColorThemeEtx>? other, double t) {
+    if (other is! MEmotionalColorThemeEtx) {
+      return this;
+    }
+    return MEmotionalColorThemeEtx(
+      yellowColor: Color.lerp(yellowColor, other.yellowColor, t),
+      orangeColor: Color.lerp(orangeColor, other.orangeColor, t),
+      redColor: Color.lerp(redColor, other.redColor, t),
+      greenColor: Color.lerp(greenColor, other.greenColor, t),
+    );
+  }
+
+  @override
+  String toString() {
+    return 'MEmotionalColorThemeEtx('
+        'yellowColor:$yellowColor,'
+        'orangeColor:$orangeColor,'
+        'redColor:$redColor,'
+        'greenColor:$greenColor,'
         ')';
   }
 }

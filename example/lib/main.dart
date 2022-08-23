@@ -17,16 +17,35 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return MaterialApp(
       title: 'Mie Flutter Demo',
-      darkTheme: theme.copyWith(
+      darkTheme: ThemeData.from(
+              colorScheme:
+                  ColorScheme.fromSeed(seedColor: Color(0xFF2654FF), brightness: Brightness.dark))
+          .copyWith(
         extensions: [
+          MButtonThemeEtx(
+              mainBackGroundColor: Colors.blue,
+              mainTextColor: Colors.white,
+              secondaryBackGroundColor: Colors.white,
+              secondaryTextColor: Colors.blue,
+              mainRadius: 0,
+              secondaryRadius: 0),
           MTextThemeEtx(textColor: Colors.white),
-          MPrimaryColorThemeEtx(color: Color(0x2654FF)),
+          MPrimaryColorThemeEtx(color: Color(0xFF2654FF)),
+          MEmotionalColorThemeEtx(
+            orangeColor: Color(0XFFED640C),
+            yellowColor: Color(0XFFFFCA0D),
+            redColor: Color(0XFFC93C33),
+            greenColor: Color(0X31AF84),
+          ),
         ],
       ),
-      theme: theme.copyWith(extensions: [
+      theme: ThemeData.from(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFF2654FF),
+        ),
+      ).copyWith(extensions: [
         MButtonThemeEtx(
             mainBackGroundColor: Colors.blue,
             mainTextColor: Colors.white,
@@ -40,8 +59,14 @@ class MyApp extends StatelessWidget {
           cardColor: Colors.white70,
           // textColor: Color(0x29303D),
         ),
-        MTextThemeEtx(textColor: Color(0x29303D)),
-        MPrimaryColorThemeEtx(color: Color(0x2654FF)),
+        MTextThemeEtx(textColor: Color(0xFF29303D)),
+        MPrimaryColorThemeEtx(color: Color(0xFF2654FF)),
+        MEmotionalColorThemeEtx(
+          orangeColor: Color(0XFFED640C),
+          yellowColor: Color(0XFFFFCA0D),
+          redColor: Color(0XFFC93C33),
+          greenColor: Color(0X31AF84),
+        ),
       ]),
       home: MyHomePage(title: 'Mie Demo List Page'),
     );

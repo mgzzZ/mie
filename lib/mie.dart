@@ -3,6 +3,7 @@ library mie;
 export 'src/buttons.dart';
 export 'src/check_able.dart';
 export 'src/containers.dart';
+export 'src/ext.dart';
 export 'src/icon.dart';
 export 'src/m_check_container.dart';
 export 'src/m_checkbox.dart';
